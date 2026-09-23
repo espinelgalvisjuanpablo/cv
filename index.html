@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juan Pablo Espinel Galvis — ATS Resume Engineering & Professional Showcase</title>
+  <title>Juan Pablo Espinel Galvis — Curriculum Vitae & ATS Architecture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(253, 251, 247, 0.88);
+      background: rgba(253, 251, 247, 0.9);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
@@ -61,7 +61,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all 0.3s ease;
     }
 
     .nav-brand {
@@ -79,7 +78,7 @@
       background: var(--brand-orange);
       color: #fff;
       font-size: 0.65rem;
-      padding: 2px 6px;
+      padding: 2px 7px;
       border-radius: 6px;
       font-weight: 700;
     }
@@ -114,7 +113,6 @@
       gap: 12px;
     }
 
-    /* Global Language Toggle */
     .lang-toggle {
       display: inline-flex;
       background: rgba(78, 52, 46, 0.06);
@@ -174,7 +172,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 70px 24px 50px 24px;
+      padding: 64px 24px 40px 24px;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -192,23 +190,30 @@
       padding: 6px 16px;
       border-radius: 20px;
       border: 1px solid rgba(230, 81, 0, 0.15);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .hero-title {
-      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.1;
+      line-height: 1.05;
       color: var(--text-main);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brand-orange);
+      margin-bottom: 14px;
     }
 
     .hero-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
       font-weight: 400;
-      max-width: 740px;
+      max-width: 760px;
       margin: 0 auto 32px auto;
       line-height: 1.6;
     }
@@ -222,12 +227,12 @@
 
     /* Section Headers */
     .section-header {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       scroll-margin-top: 100px;
     }
 
     .section-label {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--brand-brown);
@@ -237,26 +242,26 @@
     }
 
     .section-desc {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    /* Cards & Boxes */
+    /* Cards & Grids */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .info-card {
       background: var(--surface-card);
       border: 1px solid var(--border-subtle);
       border-radius: 20px;
-      padding: 28px;
+      padding: 26px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s ease;
     }
 
     .info-card:hover {
@@ -266,30 +271,24 @@
     }
 
     .info-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--brand-brown);
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .info-card p, .info-card ul {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.65;
     }
 
     .info-card ul {
       list-style: none;
       padding-left: 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
     }
 
     .info-card ul li {
       position: relative;
-      padding-left: 20px;
+      padding-left: 18px;
       margin-bottom: 8px;
+      line-height: 1.55;
     }
 
     .info-card ul li::before {
@@ -302,66 +301,58 @@
       top: -2px;
     }
 
-    /* Shortcut Badge */
     .kbd-badge {
       background: rgba(78, 52, 46, 0.08);
       border: 1px solid rgba(78, 52, 46, 0.15);
       border-radius: 6px;
       padding: 2px 7px;
       font-family: monospace;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--brand-brown);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
 
-    /* Interview Checklist Card */
-    .checklist-box {
-      background: var(--surface-card);
+    /* Table Component for Checklist */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 18px;
       border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 32px;
-      margin-bottom: 60px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
-    }
-
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .checklist-item {
-      background: var(--bg-light);
-      border: 1px solid var(--border-subtle);
-      padding: 16px;
       border-radius: 14px;
+      background: var(--surface-card);
     }
 
-    .checklist-item label {
-      font-size: 0.75rem;
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    .custom-table th {
+      background: var(--bg-light);
+      padding: 12px 16px;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--brand-orange);
-      display: block;
-      margin-bottom: 4px;
+      color: var(--brand-brown);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .checklist-item span {
-      font-size: 0.9rem;
-      font-weight: 700;
+    .custom-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
       color: var(--text-main);
     }
 
-    /* Learning Hub Section */
+    .custom-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Learning Hub */
     .learning-box {
       background: var(--accent-bg);
       border: 1.5px solid rgba(230, 81, 0, 0.2);
       border-radius: 22px;
-      padding: 36px;
-      margin-bottom: 60px;
+      padding: 32px;
+      margin-bottom: 50px;
     }
 
     .prompt-code {
@@ -370,12 +361,12 @@
       border-radius: 14px;
       padding: 20px;
       font-family: 'Courier New', Courier, monospace;
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       color: #e2e8f0;
       white-space: pre-wrap;
-      max-height: 280px;
+      max-height: 260px;
       overflow-y: auto;
-      margin: 18px 0;
+      margin: 16px 0;
       line-height: 1.5;
     }
 
@@ -384,20 +375,20 @@
       display: flex;
       flex-direction: column;
       gap: 18px;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .product-row {
       background: var(--surface-card);
       border: 1.5px solid var(--border-subtle);
       border-radius: 20px;
-      padding: 28px 32px;
+      padding: 26px 30px;
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s ease;
     }
 
     .product-row:hover {
@@ -407,9 +398,8 @@
     }
 
     .product-info h3 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 800;
-      letter-spacing: -0.01em;
       margin-bottom: 6px;
       color: var(--text-main);
     }
@@ -432,7 +422,7 @@
     .btn {
       font-size: 0.85rem;
       font-weight: 700;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 24px;
       text-decoration: none;
       cursor: pointer;
@@ -475,31 +465,34 @@
       box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35);
     }
 
+    .btn-link {
+      color: var(--brand-orange);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
     /* Contact Section */
     .contact-box {
       background: linear-gradient(135deg, #3d2824 0%, #1c1311 100%);
       color: #ffffff;
       border-radius: 24px;
-      padding: 50px 36px;
-      margin-bottom: 80px;
+      padding: 46px 32px;
+      margin-bottom: 70px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
       box-shadow: 0 12px 35px rgba(61, 40, 36, 0.25);
     }
 
     .contact-title {
-      font-size: 1.8rem;
+      font-size: 1.75rem;
       font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
+      margin-bottom: 10px;
     }
 
     .contact-subtitle {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       color: rgba(255, 255, 255, 0.82);
-      max-width: 620px;
-      margin: 0 auto 30px auto;
+      max-width: 600px;
+      margin: 0 auto 28px auto;
     }
 
     .whatsapp-btn {
@@ -507,19 +500,19 @@
       color: #ffffff;
       font-weight: 800;
       font-size: 1.05rem;
-      padding: 16px 36px;
+      padding: 15px 34px;
       border-radius: 35px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       box-shadow: 0 6px 22px rgba(37, 211, 102, 0.35);
-      transition: all 0.25 ease;
+      transition: all 0.25s ease;
     }
 
     .whatsapp-btn:hover {
       background: #20ba5a;
-      transform: translateY(-2px) scale(1.02);
+      transform: translateY(-2px);
       box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
     }
 
@@ -527,7 +520,7 @@
     footer {
       background: var(--surface-card);
       border-top: 1px solid var(--border-subtle);
-      padding: 36px 24px;
+      padding: 32px 24px;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.88rem;
@@ -585,11 +578,6 @@
       cursor: pointer;
       font-weight: 700;
       font-size: 0.8rem;
-      transition: background 0.2s;
-    }
-
-    .modal-close:hover {
-      background: var(--brand-orange-hover);
     }
 
     iframe {
@@ -598,7 +586,6 @@
       border: none;
     }
 
-    /* Toast Notification */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -612,64 +599,41 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.2);
       display: none;
       z-index: 3000;
-      animation: fadeIn 0.3s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsive Design */
     @media (max-width: 860px) {
-      .nav-links {
-        display: none;
-      }
-      .product-row {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-      .product-actions {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-      .btn {
-        flex: 1;
-        min-width: 130px;
-      }
-      .hero-title {
-        font-size: 2.2rem;
-      }
-      .contact-box {
-        padding: 40px 20px;
-      }
+      .nav-links { display: none; }
+      .product-row { grid-template-columns: 1fr; gap: 16px; }
+      .product-actions { justify-content: flex-start; flex-wrap: wrap; width: 100%; }
+      .btn { flex: 1; min-width: 120px; }
+      .hero-title { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
 
   <!-- Toast Notification -->
-  <div id="toast" class="toast">Prompt copiado al portapapeles!</div>
+  <div id="toast" class="toast">Texto copiado!</div>
 
   <!-- Fixed Top Navigation -->
   <nav class="nav-bar">
     <a href="#home" class="nav-brand">
       Juan Pablo Espinel Galvis
-      <span>ATS Ready</span>
+      <span>ATS Standard</span>
     </a>
 
     <div class="nav-menu">
       <div class="nav-links">
-        <a href="#ats-guide" data-es="Guía ATS" data-en="ATS Guide">Guía ATS</a>
+        <a href="#ats-guide" data-es="Formato ATS" data-en="ATS Standard">Formato ATS</a>
+        <a href="#interview-tools" data-es="Herramientas & Atajos" data-en="Tools & Hacks">Herramientas & Atajos</a>
         <a href="#learning" data-es="Agente AI GEM" data-en="AI GEM Hub">Agente AI GEM</a>
         <a href="#casestudy" data-es="Caso de Estudio" data-en="Case Study">Caso de Estudio</a>
-        <a href="#editions" data-es="Hojas de Vida" data-en="CV Editions">Hojas de Vida</a>
+        <a href="#editions" data-es="Ejemplos de CV" data-en="CV Examples">Ejemplos de CV</a>
         <a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
       </div>
 
       <div class="nav-actions">
-        <!-- Global Language Switcher -->
+        <!-- Language Switcher -->
         <div class="lang-toggle">
           <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
           <button class="lang-btn" onclick="setLanguage('en')">EN</button>
@@ -683,113 +647,169 @@
   <main>
     <!-- Hero Section -->
     <header class="hero" id="home">
-      <div class="hero-eyebrow" data-es="⚡ Arquitectura de Perfil Profesional & ATS" data-en="⚡ Professional Profile Architecture & ATS">
-        ⚡ Arquitectura de Perfil Profesional & ATS
+      <div class="hero-eyebrow" data-es="⚡ Professional Profile Engineering" data-en="⚡ Professional Profile Engineering">
+        ⚡ Professional Profile Engineering
       </div>
-      <h1 class="hero-title" data-es="Aprende a Crear una Hoja de Vida Perfecta para Filtros ATS" data-en="Master the Art of ATS-Optimized Resume Engineering">
+      
+      <h1 class="hero-title">Curriculum Vitae</h1>
+      
+      <p class="hero-tagline" data-es="Aprende a Crear una Hoja de Vida Perfecta para Filtros ATS" data-en="Master the Art of ATS-Optimized Resume Engineering">
         Aprende a Crear una Hoja de Vida Perfecta para Filtros ATS
-      </h1>
-      <p class="hero-subtitle" data-es="Optimiza tu perfil para procesos de selección globales en tecnología y operaciones. Aprende las reglas de oro de lectura algorítmica, atajos de productividad para entrevistas y descarga ejemplos reales optimizados." data-en="Optimize your profile for global tech and operations hiring. Learn algorithmic parsing rules, interview productivity shortcuts, and download real optimized CV templates.">
-        Optimiza tu perfil para procesos de selección globales en tecnología y operaciones. Aprende las reglas de oro de lectura algorítmica, atajos de productividad para entrevistas y descarga ejemplos reales optimizados.
       </p>
+
+      <p class="hero-subtitle" data-es="Optimiza tu perfil para procesos de selección globales en tecnología y operaciones. Aprende las reglas de oro de lectura algorítmica, atajos de productividad para entrevistas y explora ejemplos de diseño bilingües." data-en="Optimize your profile for global tech and operations hiring. Learn algorithmic parsing rules, interview productivity hacks, and explore exemplary bilingual resume designs.">
+        Optimiza tu perfil para procesos de selección globales en tecnología y operaciones. Aprende las reglas de oro de lectura algorítmica, atajos de productividad para entrevistas y explora ejemplos de diseño bilingües.
+      </p>
+
       <div class="hero-buttons">
-        <a href="#ats-guide" class="btn btn-download" data-es="📖 Explorar Guía & Tips" data-en="📖 Explore Guide & Tips">📖 Explorar Guía & Tips</a>
-        <a href="#editions" class="btn btn-preview" data-es="📄 Ver Hojas de Vida Ejemplares" data-en="📄 View Exemplary Resumes">📄 Ver Hojas de Vida Ejemplares</a>
+        <a href="#ats-guide" class="btn btn-download" data-es="📖 Ver Guía ATS Exclusiva" data-en="📖 View ATS Standard Guide">📖 Ver Guía ATS Exclusiva</a>
+        <a href="#editions" class="btn btn-preview" data-es="📄 Ver Ejemplos de CV" data-en="📄 Explore CV Examples">📄 Ver Ejemplos de CV</a>
       </div>
     </header>
 
     <div class="container">
       
-      <!-- SECTION 1: ATS Guide & Interview Hacks -->
+      <!-- SECTION 1: ATS Pure Format Guide -->
       <section id="ats-guide" class="section-header">
-        <h2 class="section-label" data-es="🎯 Guía de Formato ATS y Buenas Prácticas" data-en="🎯 ATS Format Guide & Best Practices">
-          🎯 Guía de Formato ATS y Buenas Prácticas
+        <h2 class="section-label" data-es="🎯 Reglas Exclusivas de Formato y Estructura ATS" data-en="🎯 Exclusive ATS Formatting & Parsing Rules">
+          🎯 Reglas Exclusivas de Formato y Estructura ATS
         </h2>
-        <p class="section-desc" data-es="Principios fundamentales para asegurar que los algoritmos de reclutamiento (ATS) e IA lean tu información sin errores." data-en="Essential principles to ensure Applicant Tracking Systems (ATS) and AI parse your information flawlessly.">
-          Principios fundamentales para asegurar que los algoritmos de reclutamiento (ATS) e IA lean tu información sin errores.
+        <p class="section-desc" data-es="Estándares técnicos para asegurar que los motores de reclutamiento (ATS) e Inteligencia Artificial lean tu perfil sin errores de sintaxis." data-en="Technical standards to ensure Applicant Tracking Systems (ATS) and AI parsers read your profile without syntax errors.">
+          Estándares técnicos para asegurar que los motores de reclutamiento (ATS) e Inteligencia Artificial lean tu perfil sin errores de sintaxis.
         </p>
       </section>
 
       <div class="card-grid">
         <!-- Rule 1 -->
         <div class="info-card">
-          <h3 data-es="🖤 Formato 100% Limpio" data-en="🖤 Pure Clean Formatting">🖤 Formato 100% Limpio</h3>
+          <h3 data-es="🖤 Formato Limpio y Columna Única" data-en="🖤 Single-Column Clean Layout">🖤 Formato Limpio y Columna Única</h3>
           <ul>
-            <li data-es="<b>Cero colores decorativos:</b> Nada de barras azules, divisiones de color o fondos oscuros que confundan los OCR." data-en="<b>Zero decorative colors:</b> Avoid blue header bars, background fills, or colored lines that confuse OCRs."><b>Cero colores decorativos:</b> Nada de barras azules, divisiones de color o fondos oscuros que confundan los OCR.</li>
-            <li data-es="<b>Texto negro puro (#000000):</b> Facilita la extracción de caracteres sin importar la resolución." data-en="<b>Pure black text (#000000):</b> Maximizes character extraction accuracy across all parsers."><b>Texto negro puro (#000000):</b> Facilita la extracción de caracteres sin importar la resolución.</li>
-            <li data-es="<b>Columna única vertical:</b> Jamás uses dos columnas ni cajas flotantes." data-en="<b>Single-column structure:</b> Never use dual columns, tables, or floating text boxes."><b>Columna única vertical:</b> Jamás uses dos columnas ni cajas flotantes.</li>
+            <li data-es="<b>Cero gráficos o tablas:</b> Nunca uses tablas flotantes, fotos o barras decorativas de color azul u otros tonos." data-en="<b>Zero tables or graphics:</b> Avoid floating tables, photos, or colored division bars that confuse OCR engines."><b>Cero gráficos o tablas:</b> Nunca uses tablas flotantes, fotos o barras decorativas de color azul u otros tonos.</li>
+            <li data-es="<b>Texto negro puro (#000000):</b> Garantiza el 100% de legibilidad en cualquier sistema de escaneo." data-en="<b>Pure black text (#000000):</b> Ensures 100% reading accuracy across all software parsers."><b>Texto negro puro (#000000):</b> Garantiza el 100% de legibilidad en cualquier sistema de escaneo.</li>
+            <li data-es="<b>Estructura vertical:</b> Los lectores ATS escanean de arriba a abajo y de izquierda a derecha. Mantén una sola columna." data-en="<b>Vertical hierarchy:</b> ATS parsers read top-to-bottom, left-to-right. Stick to strict single-column flow."><b>Estructura vertical:</b> Los lectores ATS escanean de arriba a abajo y de izquierda a derecha. Mantén una sola columna.</li>
           </ul>
         </div>
 
         <!-- Rule 2 -->
         <div class="info-card">
-          <h3 data-es="⌨️ Atajos de Portapapeles" data-en="⌨️ Clipboard Hacks">⌨️ Atajos de Portapapeles</h3>
-          <p style="margin-bottom: 10px;" data-es="Agiliza el llenado de formularios largos de postulaciones:" data-en="Speed up tedious job application forms:">Agiliza el llenado de formularios largos de postulaciones:</p>
+          <h3 data-es="🔍 Estrategia de Keywords y Verbos" data-en="🔍 Keywords & Action Verbs Strategy">🔍 Estrategia de Keywords y Verbos</h3>
           <ul>
-            <li data-es="<b>En Windows:</b> Presiona <span class='kbd-badge'>Win + V</span> para activar el historial del portapapeles. Guarda ahí tu LinkedIn, GitHub y respuestas frecuentes." data-en="<b>On Windows:</b> Press <span class='kbd-badge'>Win + V</span> to open clipboard history. Store your LinkedIn, GitHub, and common answers."><b>En Windows:</b> Presiona <span class='kbd-badge'>Win + V</span> para activar el historial del portapapeles. Guarda ahí tu LinkedIn, GitHub y respuestas frecuentes.</li>
-            <li data-es="<b>En Mac:</b> Usa <span class='kbd-badge'>Cmd + Option + Shift + V</span> para pegar sin formato. Se recomienda usar utilidades como <i>Maccy</i> o <i>Raycast Clipboard</i>." data-en="<b>On Mac:</b> Use <span class='kbd-badge'>Cmd + Option + Shift + V</span> to paste plain text. Apps like <i>Maccy</i> or <i>Raycast Clipboard</i> add clipboard history."><b>En Mac:</b> Usa <span class='kbd-badge'>Cmd + Option + Shift + V</span> para pegar sin formato. Se recomienda usar utilidades como <i>Maccy</i> o <i>Raycast Clipboard</i>.</li>
+            <li data-es="<b>Verbos de acción:</b> Inicia cada viñeta de logro con verbos en pasado o presente (ej. <i>Investigated, Coordinated, Boosted</i>)." data-en="<b>Action verbs:</b> Begin bullet points with strong verbs (e.g., <i>Investigated, Coordinated, Boosted</i>)."><b>Verbos de acción:</b> Inicia cada viñeta de logro con verbos en pasado o presente (ej. <i>Investigated, Coordinated, Boosted</i>).</li>
+            <li data-es="<b>Palabras clave de la vacante:</b> Copia exactamente términos técnicos y herramientas solicitadas en la oferta de trabajo." data-en="<b>Job description matching:</b> Mirror technical terms and software tools explicitly requested in the posting."><b>Palabras clave de la vacante:</b> Copia exactamente términos técnicos y herramientas solicitadas en la oferta de trabajo.</li>
+            <li data-es="<b>Métricas cuantificables:</b> Incluye porcentajes o números de impacto (ej. <i>+35% productividad</i>)." data-en="<b>Quantifiable impact:</b> Always back claims with percentages or volume metrics (e.g., <i>+35% productivity</i>)."><b>Métricas cuantificables:</b> Incluye porcentajes o números de impacto (ej. <i>+35% productividad</i>).</li>
           </ul>
         </div>
 
         <!-- Rule 3 -->
         <div class="info-card">
-          <h3 data-es="🔗 Enlaces e Hipervínculos" data-en="🔗 Hyperlinks & Anchors">🔗 Enlaces e Hipervínculos</h3>
+          <h3 data-es="📅 Fechas e Hipervínculos Limpios" data-en="📅 Dates & Clean Hyperlinks">📅 Fechas e Hipervínculos Limpios</h3>
           <ul>
-            <li data-es="<b>Hipervínculos limpios:</b> Ancla tus enlaces en palabras clave claras como 'LinkedIn', 'Portfolio' o 'GitHub'." data-en="<b>Clean hyperlink text:</b> Embed links into concise keywords like 'LinkedIn', 'Portfolio', or 'GitHub'."><b>Hipervínculos limpios:</b> Ancla tus enlaces en palabras clave claras como 'LinkedIn', 'Portfolio' o 'GitHub'.</li>
-            <li data-es="<b>Sin URLs extremadamente largas:</b> Evita pegar URLs de 3 líneas que ensucian el diseño impreso y digital." data-en="<b>Avoid raw ugly URLs:</b> Do not paste 3-line long URLs that ruin visual clean design."><b>Sin URLs extremadamente largas:</b> Evita pegar URLs de 3 líneas que ensucian el diseño impreso y digital.</li>
+            <li data-es="<b>Ubicación de fechas:</b> Ubica siempre las fechas en la línea inmediatamente inferior al cargo/empresa para evitar confusiones de nombres." data-en="<b>Strategic date placement:</b> Place dates directly below the role/company to prevent organizational naming errors."><b>Ubicación de fechas:</b> Ubica siempre las fechas en la línea inmediatamente inferior al cargo/empresa para evitar confusiones de nombres.</li>
+            <li data-es="<b>Enlaces anclados en texto:</b> Ancla hipervínculos en palabras clave como 'LinkedIn', 'Portfolio' o 'GitHub'." data-en="<b>Anchor text links:</b> Embed links cleanly inside simple words like 'LinkedIn', 'Portfolio', or 'GitHub'."><b>Enlaces anclados en texto:</b> Ancla hipervínculos en palabras clave como 'LinkedIn', 'Portfolio' o 'GitHub'.</li>
+            <li data-es="<b>Evita URLs extensas:</b> No pegues enlaces crudos de 3 líneas que ensucian la lectura digital." data-en="<b>Avoid raw ugly URLs:</b> Do not print out lengthy raw links that distort PDF alignment."><b>Evita URLs extensas:</b> No pegues enlaces crudos de 3 líneas que ensucian la lectura digital.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Interview Checklist Card -->
-      <div class="checklist-box">
-        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-brown);" data-es="📋 Checklist de Datos Clave para Formularios y Entrevistas" data-en="📋 Essential Data Checklist for Job Applications">
-          📋 Checklist de Datos Clave para Formularios y Entrevistas
+      <!-- SECTION 2: Interview Hacks & Data Checklist -->
+      <section id="interview-tools" class="section-header">
+        <h2 class="section-label" data-es="⚡ Atajos de Portapapeles & Checklist para Entrevistas" data-en="⚡ Clipboard Hacks & Application Checklist">
+          ⚡ Atajos de Portapapeles & Checklist para Entrevistas
+        </h2>
+        <p class="section-desc" data-es="Ahorra tiempo al llenar formularios de postulación masivos y respuestas frecuentes en procesos de selección." data-en="Save time filling long job applications and prepare key information requested in recruiters' forms.">
+          Ahorra tiempo al llenar formularios de postulación masivos y respuestas frecuentes en procesos de selección.
+        </p>
+      </section>
+
+      <!-- Clipboard Hacks Explanation -->
+      <div class="info-card" style="margin-bottom: 24px;">
+        <h3 data-es="⌨️ Dominando el Historial de Portapapeles (Windows vs. Mac)" data-en="⌨️ Mastering Clipboard History (Windows vs. Mac)">
+          ⌨️ Dominando el Historial de Portapapeles (Windows vs. Mac)
         </h3>
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;" data-es="Ten siempre listos estos datos en tu portapapeles antes de iniciar una postulación:" data-en="Keep these exact data points ready in your clipboard history before starting applications:">
-          Ten siempre listos estos datos en tu portapapeles antes de iniciar una postulación:
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;" data-es="Llenar aplicaciones repetitivas no requiere presionar 'Control+C' y 'Control+V' a cada segundo. Puedes guardar múltiples textos en memoria:" data-en="Filling repetitive application forms doesn't mean copying and pasting one item at a time. Use native clipboard history:">
+          Llenar aplicaciones repetitivas no requiere presionar 'Control+C' y 'Control+V' a cada segundo. Puedes guardar múltiples textos en memoria:
+        </p>
+        <ul>
+          <li data-es="<b>En Windows:</b> Oprime <span class='kbd-badge'>Win + V</span> para activar el historial nativo. Podrás fijar tu LinkedIn, GitHub, expectativa salarial y correo para pegarlos en 1 clic." data-en="<b>On Windows:</b> Press <span class='kbd-badge'>Win + V</span> to activate built-in clipboard history. Pin your LinkedIn, GitHub, salary targets, and email for 1-click pasting."><b>En Windows:</b> Oprime <span class='kbd-badge'>Win + V</span> para activar el historial nativo. Podrás fijar tu LinkedIn, GitHub, expectativa salarial y correo para pegarlos en 1 clic.</li>
+          <li data-es="<b>En Mac:</b> Usa <span class='kbd-badge'>Cmd + Option + Shift + V</span> para pegar sin formato. Se recomienda instalar utilidades gratuitas con historial como <i>Maccy</i> o usar el historial nativo de <i>Raycast</i>." data-en="<b>On Mac:</b> Use <span class='kbd-badge'>Cmd + Option + Shift + V</span> to paste plain text without styling. Highly recommended to use tools like <i>Maccy</i> or <i>Raycast Clipboard</i>."><b>En Mac:</b> Usa <span class='kbd-badge'>Cmd + Option + Shift + V</span> para pegar sin formato. Se recomienda instalar utilidades gratuitas con historial como <i>Maccy</i> o usar el historial nativo de <i>Raycast</i>.</li>
+        </ul>
+      </div>
+
+      <!-- Salary & Application Data Table -->
+      <div class="info-card" style="margin-bottom: 50px;">
+        <h3 data-es="📋 Formato de Datos Frecuentes para Formulario (Copiable)" data-en="📋 Standard Application Data Template (Copyable)">
+          📋 Formato de Datos Frecuentes para Formulario (Copiable)
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted);" data-es="Usa esta tabla de referencia rápida con tus valores reales para copiar y pegar en portales de empleo o Excel:" data-en="Use this quick reference table with your real metrics to copy-paste directly into job portals or tracking spreadsheets:">
+          Usa esta tabla de referencia rápida con tus valores reales para copiar y pegar en portales de empleo o Excel:
         </p>
 
-        <div class="checklist-grid">
-          <div class="checklist-item">
-            <label data-es="Salario Mensual (COP)" data-en="Monthly Salary (COP)">Salario Mensual (COP)</label>
-            <span data-es="Definir rango claro" data-en="Set clear range">Definir rango claro</span>
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th data-es="Campo / Concepto" data-en="Field / Concept">Campo / Concepto</th>
+                <th data-es="Pesos Colombianos (COP)" data-en="Colombian Pesos (COP)">Pesos Colombianos (COP)</th>
+                <th data-es="Dólares (USD)" data-en="US Dollars (USD)">Dólares (USD)</th>
+                <th data-es="Euros (EUR)" data-en="Euros (EUR)">Euros (EUR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong data-es="Salario Mensual" data-en="Monthly Salary">Salario Mensual</strong></td>
+                <td>$X,XXX,XXX COP</td>
+                <td>$X,XXX USD</td>
+                <td>€X,XXX EUR</td>
+              </tr>
+              <tr>
+                <td><strong data-es="Salario Anual" data-en="Annual Salary">Salario Anual</strong></td>
+                <td>$XX,XXX,XXX COP</td>
+                <td>$XX,XXX USD</td>
+                <td>€XX,XXX EUR</td>
+              </tr>
+              <tr>
+                <td><strong data-es="Tarifa por Hora" data-en="Hourly Rate">Tarifa por Hora</strong></td>
+                <td>$XX,XXX COP/hr</td>
+                <td>$XX USD/hr</td>
+                <td>€XX EUR/hr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px;">
+          <div style="background: var(--bg-light); padding: 14px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <strong style="font-size: 0.78rem; color: var(--brand-orange); display:block; text-transform:uppercase;" data-es="Disponibilidad" data-en="Availability">Disponibilidad</strong>
+            <span style="font-size: 0.88rem; font-weight:700;" data-es="Inmediata / X Semanas de preaviso" data-en="Immediate / X Weeks notice">Inmediata / X Semanas de preaviso</span>
           </div>
-          <div class="checklist-item">
-            <label data-es="Salario Anual (USD)" data-en="Annual Salary (USD)">Salario Anual (USD)</label>
-            <span data-es="Monto bruto objetivo" data-en="Target gross amount">Monto bruto objetivo</span>
+
+          <div style="background: var(--bg-light); padding: 14px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <strong style="font-size: 0.78rem; color: var(--brand-orange); display:block; text-transform:uppercase;" data-es="Nivel de Inglés & Test" data-en="English Level & Test">Nivel de Inglés & Test</strong>
+            <span style="font-size: 0.88rem; font-weight:700;" data-es="C1 / C2 Proficient " data-en="C1 / C2 Proficient ">C1 / C2 Proficient </span>
+            <a href="https://www.efset.org/es/#:~:text=aprendizaje%20de%20idiomas.-,Pon%20a%20prueba%20tu%20ingl%C3%A9s%20ahora,-90" target="_blank" class="btn-link" style="display:block; font-size:0.78rem; margin-top:4px;" data-es="👉 Realizar Test Oficial EF SET ↗" data-en="👉 Take Official EF SET Test ↗">👉 Realizar Test Oficial EF SET ↗</a>
           </div>
-          <div class="checklist-item">
-            <label data-es="Disponibilidad" data-en="Notice Period">Disponibilidad</label>
-            <span data-es="Inmediata / X semanas" data-en="Immediate / X weeks">Inmediata / X semanas</span>
+
+          <div style="background: var(--bg-light); padding: 14px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <strong style="font-size: 0.78rem; color: var(--brand-orange); display:block; text-transform:uppercase;" data-es="Ejemplo Portafolio Web" data-en="Portfolio Web Example">Ejemplo Portafolio Web</strong>
+            <a href="https://portafolio-jpeg.vercel.app/" target="_blank" class="btn-link" style="font-size:0.85rem;">portafolio-jpeg.vercel.app ↗</a>
           </div>
-          <div class="checklist-item">
-            <label data-es="Nivel de Inglés" data-en="English Level">Nivel de Inglés</label>
-            <span data-es="B2 / C1 / C2 (Proficient)" data-en="B2 / C1 / C2 (Proficient)">B2 / C1 / C2 (Proficient)</span>
-          </div>
-          <div class="checklist-item">
-            <label data-es="Portafolio Web" data-en="Portfolio Web">Portafolio Web</label>
-            <span>portafolio-jpeg.vercel.app</span>
-          </div>
-          <div class="checklist-item">
-            <label data-es="Perfil GitHub" data-en="GitHub Profile">Perfil GitHub</label>
-            <span>github.com/usuario</span>
+
+          <div style="background: var(--bg-light); padding: 14px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <strong style="font-size: 0.78rem; color: var(--brand-orange); display:block; text-transform:uppercase;" data-es="Ejemplo Perfil GitHub" data-en="GitHub Profile Example">Ejemplo Perfil GitHub</strong>
+            <a href="https://github.com/espinelgalvisjuanpablo" target="_blank" class="btn-link" style="font-size:0.85rem;">github.com/espinelgalvisjuanpablo ↗</a>
           </div>
         </div>
       </div>
 
-      <!-- SECTION 2: AI GEM Agent Hub -->
+      <!-- SECTION 3: AI GEM Agent Hub -->
       <section id="learning" class="learning-box">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
-          <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--brand-brown);" data-es="🤖 Crea tu Agente AI GEM para Tu Hoja de Vida" data-en="🤖 Build Your Custom Resume AI GEM Agent">
-            🤖 Crea tu Agente AI GEM para Tu Hoja de Vida
-          </h2>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.9rem;" data-es="Utiliza Google Gemini u otra IA para ser entrevistado paso a paso y generar tu CV en formato ATS óptimo." data-en="Use Google Gemini or any LLM to conduct a step-by-step interview and generate an ATS-optimized resume.">
-          Utiliza Google Gemini u otra IA para ser entrevistado paso a paso y generar tu CV en formato ATS óptimo.
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--brand-brown); margin-bottom: 6px;" data-es="🤖 Entrena tu Agente AI GEM de Hoja de Vida" data-en="🤖 Train Your Custom Resume AI GEM Agent">
+          🤖 Entrena tu Agente AI GEM de Hoja de Vida
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem;" data-es="Copia este prompt en Google Gemini u otra IA para ser entrevistado paso a paso y construir tu CV desde cero." data-en="Copy this prompt into Google Gemini or your favorite LLM to run a guided interview and build your resume.">
+          Copia este prompt en Google Gemini u otra IA para ser entrevistado paso a paso y construir tu CV desde cero.
         </p>
 
-        <!-- Dynamic Code Prompt -->
         <pre class="prompt-code" id="gem-prompt"></pre>
 
         <button class="btn btn-download" onclick="copyGemPrompt()" data-es="📋 Copiar Prompt del Agente AI" data-en="📋 Copy AI Agent Prompt">
@@ -797,38 +817,38 @@
         </button>
       </section>
 
-      <!-- SECTION 3: Case Study -->
-      <section id="casestudy" class="checklist-box">
-        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--brand-brown); margin-bottom: 8px;" data-es="🔍 Caso de Estudio: Arquitectura de Perfil & Plataforma Web" data-en="🔍 Case Study: Profile Architecture & Web Platform">
-          🔍 Caso de Estudio: Arquitectura de Perfil & Plataforma Web
+      <!-- SECTION 4: Case Study -->
+      <section id="casestudy" class="info-card" style="margin-bottom: 50px;">
+        <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-brown); margin-bottom: 6px;" data-es="🔍 Caso de Estudio: Arquitectura Técnica de esta Página Web" data-en="🔍 Case Study: Technical Web Architecture of this Site">
+          🔍 Caso de Estudio: Arquitectura Técnica de esta Página Web
         </h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;" data-es="Análisis técnico de cómo se construyeron estos currículums y la arquitectura ligera de este sitio." data-en="Technical breakdown of how these resumes were engineered for zero-defect ATS parsing alongside this web platform.">
-          Análisis técnico de cómo se construyeron estos currículums y la arquitectura ligera de este sitio.
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px;" data-es="Explicación transparente de cómo está estructurado el código de esta plataforma para ofrecer una experiencia ultrarrápida, accesible y sin dependencias pesadas:" data-en="Transparent breakdown of how this platform's frontend code is structured for high speed, accessibility, and lightweight execution:">
+          Explicación transparente de cómo está estructurado el código de esta plataforma para ofrecer una experiencia ultrarrápida, accesible y sin dependencias pesadas:
         </p>
 
-        <div class="checklist-grid">
-          <div class="checklist-item">
-            <label data-es="Estructura ATS Estricta" data-en="Strict ATS Layout">Estructura ATS Estricta</label>
-            <p style="font-size: 0.82rem; color: var(--text-muted);" data-es="Ubicación de fechas directamente debajo de cargos/empresas para evitar que los algoritmos confundan fechas con nombres de organizaciones." data-en="Dates positioned directly under roles/companies so parsing algorithms never conflate dates with organization names.">Ubicación de fechas directamente debajo de cargos/empresas para evitar que los algoritmos confundan fechas con nombres de organizaciones.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+          <div style="background: var(--bg-light); padding: 14px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <strong style="color: var(--brand-orange); font-size: 0.88rem; display:block; margin-bottom:4px;" data-es="Single-Page HTML Pure" data-en="Single-Page Pure HTML">Single-Page HTML Pure</strong>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" data-es="Todo el sitio corre en un solo archivo con variables CSS globales para máximo rendimiento." data-en="Entire site runs on a single structured file with native CSS variables for maximum performance.">Todo el sitio corre en un solo archivo con variables CSS globales para máximo rendimiento.</p>
           </div>
-          <div class="checklist-item">
-            <label data-es="Visualizador PDF Integrado" data-en="Embedded PDF Viewer">Visualizador PDF Integrado</label>
-            <p style="font-size: 0.82rem; color: var(--text-muted);" data-es="Modal flotante ultra rápido mediante binding de iframe directo a archivos locales, evitando dependencias pesadas." data-en="Ultra-fast modal previews using direct iframe binding to local files, eliminating heavy external libraries.">Modal flotante ultra rápido mediante binding de iframe directo a archivos locales, evitando dependencias pesadas.</p>
+          <div style="background: var(--bg-light); padding: 14px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <strong style="color: var(--brand-orange); font-size: 0.88rem; display:block; margin-bottom:4px;" data-es="Visualizador de PDF por iFrame" data-en="PDF iFrame Binding">Visualizador de PDF por iFrame</strong>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" data-es="Modal ligero que enlaza directamente a los PDFs locales sin librerías externas lentas." data-en="Lightweight modal preview directly bound to local PDF assets without heavy external JS dependencies.">Modal ligero que enlaza directamente a los PDFs locales sin librerías externas lentas.</p>
           </div>
-          <div class="checklist-item">
-            <label data-es="Diseño Glassmorphism Cálido" data-en="Warm Glassmorphism UI">Diseño Glassmorphism Cálido</label>
-            <p style="font-size: 0.82rem; color: var(--text-muted);" data-es="Estética minimalista inspirada en productos ejecutivos globales con fuentes variables Jakarta Sans." data-en="Minimalist executive aesthetic inspired by high-end tech products with Plus Jakarta Sans typography.">Estética minimalista inspirada en productos ejecutivos globales con fuentes variables Jakarta Sans.</p>
+          <div style="background: var(--bg-light); padding: 14px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <strong style="color: var(--brand-orange); font-size: 0.88rem; display:block; margin-bottom:4px;" data-es="Traducción Global Dinámica" data-en="Global Dynamic Translation">Traducción Global Dinámica</strong>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" data-es="Switch instantáneo entre inglés y español que altera el DOM mediante atributos data-lang." data-en="Instant ES/EN switcher altering the DOM through clean data-attributes without page reloads.">Switch instantáneo entre inglés y español que altera el DOM mediante atributos data-lang.</p>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 4: Resumes Showcase -->
+      <!-- SECTION 5: Resumes Showcase (Examples) -->
       <section id="editions" class="section-header">
-        <h2 class="section-label" data-es="📄 Hojas de Vida Especializadas (Resultados)" data-en="📄 Specialized Resume Editions (Results)">
-          📄 Hojas de Vida Especializadas (Resultados)
+        <h2 class="section-label" data-es="📄 Ejemplos Reales de Hojas de Vida (Referencia de Diseño)" data-en="📄 Real Resume Examples (Design Reference)">
+          📄 Ejemplos Reales de Hojas de Vida (Referencia de Diseño)
         </h2>
-        <p class="section-desc" data-es="Explora las versiones listas para descarga directa de mis hojas de vida construidas bajo todas las reglas ATS anteriores." data-en="Explore direct downloadable versions of my resumes built according to all ATS compliance rules above.">
-          Explora las versiones listas para descarga directa de mis hojas de vida construidas bajo todas las reglas ATS anteriores.
+        <p class="section-desc" data-es="Estos son ejemplos reales de mis Hojas de Vida optimizadas bajo todo el formato ATS explicado arriba. Úsalos como guía de estructura y redacción." data-en="These are real examples of my Resumes engineered under the strict ATS guidelines above. Use them as reference for design and wording.">
+          Estos son ejemplos reales de mis Hojas de Vida optimizadas bajo todo el formato ATS explicado arriba. Úsalos como guía de estructura y redacción.
         </p>
       </section>
 
@@ -842,7 +862,7 @@
           </div>
           <div class="product-actions">
             <button class="btn btn-preview" onclick="openPreview('Fintech_Risk_FinCrime.pdf')" data-es="👁 Previsualizar" data-en="👁 Preview">👁 Previsualizar</button>
-            <a class="btn btn-open" href="Fintech_Risk_FinCrime.pdf" target="_blank" data-es="↗ Abrir Pestaña" data-en="↗ Open Tab">↗ Abrir Pestaña</a>
+            <a class="btn btn-open" href="Fintech_Risk_FinCrime.pdf" target="_blank" data-es="↗ Pestaña" data-en="↗ New Tab">↗ Pestaña</a>
             <a class="btn btn-download" href="Fintech_Risk_FinCrime.pdf" download="Juan_Pablo_Espinel_Fintech_Risk_FinCrime.pdf" data-es="⬇ Descargar PDF" data-en="⬇ Download PDF">⬇ Descargar PDF</a>
           </div>
         </div>
@@ -855,14 +875,14 @@
           </div>
           <div class="product-actions">
             <button class="btn btn-preview" onclick="openPreview('Merchant_Operations.pdf')" data-es="👁 Previsualizar" data-en="👁 Preview">👁 Previsualizar</button>
-            <a class="btn btn-open" href="Merchant_Operations.pdf" target="_blank" data-es="↗ Abrir Pestaña" data-en="↗ Open Tab">↗ Abrir Pestaña</a>
+            <a class="btn btn-open" href="Merchant_Operations.pdf" target="_blank" data-es="↗ Pestaña" data-en="↗ New Tab">↗ Pestaña</a>
             <a class="btn btn-download" href="Merchant_Operations.pdf" download="Juan_Pablo_Espinel_Merchant_Operations.pdf" data-es="⬇ Descargar PDF" data-en="⬇ Download PDF">⬇ Descargar PDF</a>
           </div>
         </div>
 
       </div>
 
-      <!-- SECTION 5: Contact -->
+      <!-- SECTION 6: Contact -->
       <section id="contact" class="contact-box">
         <h2 class="contact-title" data-es="¿Listo para Elevar tu Perfil Profesional?" data-en="Ready to Elevate Your Professional Profile?">
           ¿Listo para Elevar tu Perfil Profesional?
@@ -897,7 +917,6 @@
   </div>
 
   <script>
-    // Prompts stored for AI GEM Agent
     const gemPrompts = {
       es: `Actúa como un reclutador corporativo experto y consultor de carrera especializado en ingeniería de hojas de vida para el paso de filtros ATS (Applicant Tracking Systems) e Inteligencia Artificial de selección.
 
@@ -910,7 +929,7 @@ Tus tareas principales son:
    - Experiencia laboral en orden cronológico inverso (Puesto, Empresa, Fechas, Logros cuantitativos con métricas).
    - Habilidades técnicas, herramientas de software y plataformas específicas.
    - Educación y Certificaciones oficiales.
-4. Reglas estrictas de construcción de la Hoja de Vida:
+4. Reglas strictly ATS:
    - Formato de Columna Única (Single-Column).
    - Fechas ubicadas en la línea directamente posterior al nombre de la empresa/cargo.
    - Inclusión de verbos de acción y números/porcentajes de impacto.
@@ -941,12 +960,10 @@ Your primary mission:
     function setLanguage(lang) {
       currentLang = lang;
 
-      // Toggle Active buttons
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
       });
 
-      // Update text contents
       document.querySelectorAll('[data-es]').forEach(el => {
         if (lang === 'es' && el.getAttribute('data-es')) {
           el.innerHTML = el.getAttribute('data-es');
@@ -955,10 +972,8 @@ Your primary mission:
         }
       });
 
-      // Update AI Prompt Code Box
       document.getElementById('gem-prompt').innerText = gemPrompts[lang];
 
-      // Update WhatsApp Link Text & Pre-filled Message
       const waBtnText = document.getElementById('wa-btn-text');
       const waLink = document.getElementById('whatsapp-link');
 
@@ -998,7 +1013,6 @@ Your primary mission:
       document.getElementById('pdfFrame').src = '';
     }
 
-    // Initialize Default Language
     setLanguage('es');
   </script>
 </body>
