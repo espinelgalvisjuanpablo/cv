@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juan Pablo Espinel Galvis — Professional Product & CV Architecture</title>
+  <title>Juan Pablo Espinel Galvis — ATS Resume Engineering & Professional Showcase</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --bg-light: #fdfbf7;
       --surface-card: #ffffff;
       --border-subtle: rgba(78, 52, 46, 0.08);
+      --border-hover: rgba(230, 81, 0, 0.25);
       --text-main: #1c1917;
-      --text-muted: #706e6b;
+      --text-muted: #66625d;
       --brand-orange: #e65100;
-      --brand-amber: #f57c00;
+      --brand-orange-hover: #cc4500;
       --brand-brown: #4e342e;
       --accent-bg: #fff8f0;
+      --code-bg: #141210;
       --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
@@ -40,36 +43,56 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Fixed Navigation Bar with Internal Anchors */
+    /* Fixed Navigation Bar */
     .nav-bar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(253, 251, 247, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(253, 251, 247, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 16px 32px;
+      padding: 14px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: all 0.3s ease;
     }
 
     .nav-brand {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--brand-brown);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-brand span {
+      background: var(--brand-orange);
+      color: #fff;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
     }
 
@@ -85,60 +108,60 @@
       color: var(--brand-orange);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Global Language Toggle */
+    .lang-toggle {
+      display: inline-flex;
+      background: rgba(78, 52, 46, 0.06);
+      padding: 3px;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      padding: 5px 12px;
+      border-radius: 14px;
+      border: none;
+      background: transparent;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--brand-orange);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(230, 81, 0, 0.25);
+    }
+
     .nav-tag {
       font-size: 0.8rem;
       background: var(--accent-bg);
       color: var(--brand-orange);
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 20px;
       border: 1px solid rgba(230, 81, 0, 0.2);
       font-weight: 700;
       text-decoration: none;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
 
     .nav-tag:hover {
       background: var(--brand-orange);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(230, 81, 0, 0.25);
+      box-shadow: 0 4px 14px rgba(230, 81, 0, 0.25);
     }
 
     main {
-      margin-top: 80px;
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 80px 24px 40px 24px;
-      max-width: 920px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      color: var(--brand-orange);
-      font-size: 0.85rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 14px;
-    }
-
-    .hero-title {
-      font-size: clamp(2.6rem, 5.5vw, 4.3rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.08;
-      color: var(--text-main);
-      margin-bottom: 18px;
-    }
-
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      font-weight: 400;
-      max-width: 720px;
-      margin: 0 auto 30px auto;
+      margin-top: 76px;
     }
 
     .container {
@@ -148,29 +171,226 @@
       width: 100%;
     }
 
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 70px 24px 50px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-bg);
+      color: var(--brand-orange);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(230, 81, 0, 0.15);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      max-width: 740px;
+      margin: 0 auto 32px auto;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 28px;
+      scroll-margin-top: 100px;
+    }
+
     .section-label {
       font-size: 1.5rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin-bottom: 24px;
-      border-bottom: 2px solid var(--border-subtle);
-      padding-bottom: 12px;
       color: var(--brand-brown);
-      scroll-margin-top: 100px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    /* CV Showcase List */
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Cards & Boxes */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .info-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .info-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 25px rgba(230, 81, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .info-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--brand-brown);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card p, .info-card ul {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card ul li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+
+    .info-card ul li::before {
+      content: "•";
+      color: var(--brand-orange);
+      font-weight: bold;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    /* Shortcut Badge */
+    .kbd-badge {
+      background: rgba(78, 52, 46, 0.08);
+      border: 1px solid rgba(78, 52, 46, 0.15);
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brand-brown);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    /* Interview Checklist Card */
+    .checklist-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .checklist-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border-subtle);
+      padding: 16px;
+      border-radius: 14px;
+    }
+
+    .checklist-item label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-orange);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .checklist-item span {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Learning Hub Section */
+    .learning-box {
+      background: var(--accent-bg);
+      border: 1.5px solid rgba(230, 81, 0, 0.2);
+      border-radius: 22px;
+      padding: 36px;
+      margin-bottom: 60px;
+    }
+
+    .prompt-code {
+      background: var(--code-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      max-height: 280px;
+      overflow-y: auto;
+      margin: 18px 0;
+      line-height: 1.5;
+    }
+
+    /* CV Showcase Section */
     .product-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      margin-bottom: 70px;
+      gap: 18px;
+      margin-bottom: 60px;
     }
 
     .product-row {
       background: var(--surface-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 18px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 20px;
       padding: 28px 32px;
       display: grid;
       grid-template-columns: 1fr auto;
@@ -181,27 +401,28 @@
     }
 
     .product-row:hover {
-      border-color: rgba(230, 81, 0, 0.3);
-      box-shadow: 0 12px 30px rgba(230, 81, 0, 0.08);
+      border-color: rgba(230, 81, 0, 0.35);
+      box-shadow: 0 10px 30px rgba(230, 81, 0, 0.08);
       transform: translateY(-2px);
     }
 
     .product-info h3 {
       font-size: 1.2rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.01em;
       margin-bottom: 6px;
       color: var(--text-main);
     }
 
     .product-info p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
+      line-height: 1.5;
     }
 
     .product-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       justify-content: flex-end;
       white-space: nowrap;
@@ -210,8 +431,8 @@
     /* Buttons */
     .btn {
       font-size: 0.85rem;
-      font-weight: 600;
-      padding: 10px 18px;
+      font-weight: 700;
+      padding: 10px 20px;
       border-radius: 24px;
       text-decoration: none;
       cursor: pointer;
@@ -219,6 +440,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       border: none;
     }
 
@@ -245,129 +467,25 @@
     .btn-download {
       background: var(--brand-orange);
       color: #ffffff;
-      font-weight: 700;
       box-shadow: 0 4px 14px rgba(230, 81, 0, 0.25);
     }
 
     .btn-download:hover {
-      background: #cc4500;
+      background: var(--brand-orange-hover);
       box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35);
     }
 
-    /* Case Study Section */
-    .case-study-box {
-      background: var(--surface-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 22px;
-      padding: 44px;
-      margin-bottom: 70px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-    }
-
-    .tech-stack-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-
-    .tech-card {
-      background: var(--bg-light);
-      border: 1px solid var(--border-subtle);
-      padding: 24px;
-      border-radius: 16px;
-    }
-
-    .tech-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--brand-orange);
-      margin-bottom: 8px;
-    }
-
-    .tech-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* Learning Hub Section with Language Switcher */
-    .learning-box {
-      background: var(--accent-bg);
-      border: 1.5px solid rgba(230, 81, 0, 0.2);
-      border-radius: 22px;
-      padding: 44px;
-      margin-bottom: 70px;
-    }
-
-    .lang-switcher-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      background: rgba(78, 52, 46, 0.08);
-      padding: 4px;
-      border-radius: 20px;
-    }
-
-    .lang-btn {
-      padding: 6px 16px;
-      border-radius: 16px;
-      border: none;
-      background: transparent;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .lang-btn.active {
-      background: var(--brand-orange);
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(230, 81, 0, 0.3);
-    }
-
-    .lang-content {
-      display: none;
-    }
-
-    .lang-content.active {
-      display: block;
-    }
-
-    .prompt-code {
-      background: #1c1917;
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 24px;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.85rem;
-      color: #f5f5f7;
-      white-space: pre-wrap;
-      max-height: 320px;
-      overflow-y: auto;
-      margin: 20px 0;
-      line-height: 1.5;
-    }
-
-    /* Interactive Contact Section */
+    /* Contact Section */
     .contact-box {
-      background: linear-gradient(135deg, var(--brand-brown) 0%, #2b1d19 100%);
+      background: linear-gradient(135deg, #3d2824 0%, #1c1311 100%);
       color: #ffffff;
-      border-radius: 22px;
-      padding: 50px 44px;
+      border-radius: 24px;
+      padding: 50px 36px;
       margin-bottom: 80px;
       text-align: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(78, 52, 46, 0.2);
+      box-shadow: 0 12px 35px rgba(61, 40, 36, 0.25);
     }
 
     .contact-title {
@@ -378,57 +496,38 @@
     }
 
     .contact-subtitle {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 600px;
-      margin: 0 auto 32px auto;
-    }
-
-    .interactive-card {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      padding: 28px 40px;
-      border-radius: 20px;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .interactive-card:hover {
-      transform: scale(1.03);
-      border-color: var(--brand-orange);
-      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 620px;
+      margin: 0 auto 30px auto;
     }
 
     .whatsapp-btn {
       background: #25d366;
       color: #ffffff;
       font-weight: 800;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 30px;
+      font-size: 1.05rem;
+      padding: 16px 36px;
+      border-radius: 35px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-      transition: all 0.2s ease;
+      gap: 12px;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.35);
+      transition: all 0.25 ease;
     }
 
     .whatsapp-btn:hover {
       background: #20ba5a;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
     }
 
     /* Footer */
     footer {
       background: var(--surface-card);
       border-top: 1px solid var(--border-subtle);
-      padding: 40px 24px;
+      padding: 36px 24px;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.88rem;
@@ -447,27 +546,29 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(28, 25, 23, 0.6);
+      background: rgba(28, 25, 23, 0.65);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       z-index: 2000;
       justify-content: center;
       align-items: center;
+      padding: 20px;
     }
 
     .modal-content {
-      width: 90%;
-      max-width: 950px;
-      height: 85vh;
+      width: 100%;
+      max-width: 960px;
+      height: 88vh;
       background: #ffffff;
       border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
     }
 
     .modal-header {
-      padding: 18px 28px;
+      padding: 16px 24px;
       background: var(--bg-light);
       display: flex;
       justify-content: space-between;
@@ -484,6 +585,11 @@
       cursor: pointer;
       font-weight: 700;
       font-size: 0.8rem;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--brand-orange-hover);
     }
 
     iframe {
@@ -492,243 +598,282 @@
       border: none;
     }
 
-    @media (max-width: 840px) {
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--brand-brown);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 3000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 860px) {
       .nav-links {
         display: none;
       }
       .product-row {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 18px;
       }
       .product-actions {
         justify-content: flex-start;
         flex-wrap: wrap;
+        width: 100%;
       }
       .btn {
         flex: 1;
-        min-width: 120px;
+        min-width: 130px;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .contact-box {
+        padding: 40px 20px;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Prompt copiado al portapapeles!</div>
+
   <!-- Fixed Top Navigation -->
   <nav class="nav-bar">
-    <a href="#home" class="nav-brand">Juan Pablo Espinel Galvis</a>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#editions">CV Editions</a>
-      <a href="#casestudy">Case Study & Tech</a>
-      <a href="#learning">Learning Hub</a>
-      <a href="#contact">Contact</a>
+    <a href="#home" class="nav-brand">
+      Juan Pablo Espinel Galvis
+      <span>ATS Ready</span>
+    </a>
+
+    <div class="nav-menu">
+      <div class="nav-links">
+        <a href="#ats-guide" data-es="Guía ATS" data-en="ATS Guide">Guía ATS</a>
+        <a href="#learning" data-es="Agente AI GEM" data-en="AI GEM Hub">Agente AI GEM</a>
+        <a href="#casestudy" data-es="Caso de Estudio" data-en="Case Study">Caso de Estudio</a>
+        <a href="#editions" data-es="Hojas de Vida" data-en="CV Editions">Hojas de Vida</a>
+        <a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Global Language Switcher -->
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+          <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <a href="https://portafolio-jpeg.vercel.app/" target="_blank" class="nav-tag" data-es="Portafolio Web ↗" data-en="Portfolio Web ↗">Portafolio Web ↗</a>
+      </div>
     </div>
-    <a href="https://portafolio-jpeg.vercel.app/" target="_blank" class="nav-tag">Portfolio Web ↗</a>
   </nav>
 
   <main>
     <!-- Hero Section -->
     <header class="hero" id="home">
-      <div class="hero-eyebrow">Professional Product Edition</div>
-      <h1 class="hero-title">Curriculum Vitae</h1>
-      <p class="hero-subtitle">High-impact profile engineering tailored for global tech environments, business process automation, and data-driven operational execution.</p>
+      <div class="hero-eyebrow" data-es="⚡ Arquitectura de Perfil Profesional & ATS" data-en="⚡ Professional Profile Architecture & ATS">
+        ⚡ Arquitectura de Perfil Profesional & ATS
+      </div>
+      <h1 class="hero-title" data-es="Aprende a Crear una Hoja de Vida Perfecta para Filtros ATS" data-en="Master the Art of ATS-Optimized Resume Engineering">
+        Aprende a Crear una Hoja de Vida Perfecta para Filtros ATS
+      </h1>
+      <p class="hero-subtitle" data-es="Optimiza tu perfil para procesos de selección globales en tecnología y operaciones. Aprende las reglas de oro de lectura algorítmica, atajos de productividad para entrevistas y descarga ejemplos reales optimizados." data-en="Optimize your profile for global tech and operations hiring. Learn algorithmic parsing rules, interview productivity shortcuts, and download real optimized CV templates.">
+        Optimiza tu perfil para procesos de selección globales en tecnología y operaciones. Aprende las reglas de oro de lectura algorítmica, atajos de productividad para entrevistas y descarga ejemplos reales optimizados.
+      </p>
+      <div class="hero-buttons">
+        <a href="#ats-guide" class="btn btn-download" data-es="📖 Explorar Guía & Tips" data-en="📖 Explore Guide & Tips">📖 Explorar Guía & Tips</a>
+        <a href="#editions" class="btn btn-preview" data-es="📄 Ver Hojas de Vida Ejemplares" data-en="📄 View Exemplary Resumes">📄 Ver Hojas de Vida Ejemplares</a>
+      </div>
     </header>
 
     <div class="container">
       
-      <!-- CV Showcase Section -->
-      <section>
-        <h2 class="section-label" id="editions">Specialized CV Editions</h2>
-        <div class="product-list">
-          
-          <!-- Edition 1 -->
-          <div class="product-row">
-            <div class="product-info">
-              <h3>Fintech Quality Assurance & Process Optimization Lead</h3>
-              <p>Focus: Process Auditing, Operations Coaching, Productivity KPIs (+35%), and N8N/Workflow Automations.</p>
-            </div>
-            <div class="product-actions">
-              <button class="btn btn-preview" onclick="openPreview('Fintech Quality Assurance & Process Optimization Lead.pdf')">Preview</button>
-              <a class="btn btn-open" href="Fintech%20Quality%20Assurance%20%26%20Process%20Optimization%20Lead.pdf" target="_blank">Open New Tab</a>
-              <a class="btn btn-download" href="Fintech%20Quality%20Assurance%20%26%20Process%20Optimization%20Lead.pdf" download="Juan_Pablo_Espinel_Fintech_QA_Lead.pdf">Download PDF</a>
-            </div>
-          </div>
-
-          <!-- Edition 2 -->
-          <div class="product-row">
-            <div class="product-info">
-              <h3>Financial Disputes & Risk Operations Specialist</h3>
-              <p>Focus: End-to-End Dispute Management, VROL System, Visa/Stripe Regulatory Compliance, and Risk Mitigation.</p>
-            </div>
-            <div class="product-actions">
-              <button class="btn btn-preview" onclick="openPreview('Financial Disputes & Risk Operations Specialist.pdf')">Preview</button>
-              <a class="btn btn-open" href="Financial%20Disputes%20%26%20Risk%20Operations%20Specialist.pdf" target="_blank">Open New Tab</a>
-              <a class="btn btn-download" href="Financial%20Disputes%20%26%20Risk%20Operations%20Specialist.pdf" download="Juan_Pablo_Espinel_Financial_Disputes.pdf">Download PDF</a>
-            </div>
-          </div>
-
-          <!-- Edition 3 -->
-          <div class="product-row">
-            <div class="product-info">
-              <h3>Technical Executive Assistant & Operations Coordinator</h3>
-              <p>Focus: High-Touch C-Suite Support, Executive Process Automation, SINCO ERP, and Event Logistics.</p>
-            </div>
-            <div class="product-actions">
-              <button class="btn btn-preview" onclick="openPreview('Technical Executive Assistant & Operations Coordinator.pdf')">Preview</button>
-              <a class="btn btn-open" href="Technical%20Executive%20Assistant%20%26%20Operations%20Coordinator.pdf" target="_blank">Open New Tab</a>
-              <a class="btn btn-download" href="Technical%20Executive%20Assistant%20%26%20Operations%20Coordinator.pdf" download="Juan_Pablo_Espinel_Technical_EA.pdf">Download PDF</a>
-            </div>
-          </div>
-
-        </div>
+      <!-- SECTION 1: ATS Guide & Interview Hacks -->
+      <section id="ats-guide" class="section-header">
+        <h2 class="section-label" data-es="🎯 Guía de Formato ATS y Buenas Prácticas" data-en="🎯 ATS Format Guide & Best Practices">
+          🎯 Guía de Formato ATS y Buenas Prácticas
+        </h2>
+        <p class="section-desc" data-es="Principios fundamentales para asegurar que los algoritmos de reclutamiento (ATS) e IA lean tu información sin errores." data-en="Essential principles to ensure Applicant Tracking Systems (ATS) and AI parse your information flawlessly.">
+          Principios fundamentales para asegurar que los algoritmos de reclutamiento (ATS) e IA lean tu información sin errores.
+        </p>
       </section>
 
-      <!-- Case Study & Web Architecture -->
-      <section class="case-study-box">
-        <h2 class="section-label" id="casestudy" style="border:none; padding:0; margin-bottom: 8px;">Case Study: Profile & Web Platform Architecture</h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">
-          An technical breakdown of how these CVs were engineered for zero-defect ATS parsing, alongside the web platform architecture powering this showcase.
+      <div class="card-grid">
+        <!-- Rule 1 -->
+        <div class="info-card">
+          <h3 data-es="🖤 Formato 100% Limpio" data-en="🖤 Pure Clean Formatting">🖤 Formato 100% Limpio</h3>
+          <ul>
+            <li data-es="<b>Cero colores decorativos:</b> Nada de barras azules, divisiones de color o fondos oscuros que confundan los OCR." data-en="<b>Zero decorative colors:</b> Avoid blue header bars, background fills, or colored lines that confuse OCRs."><b>Cero colores decorativos:</b> Nada de barras azules, divisiones de color o fondos oscuros que confundan los OCR.</li>
+            <li data-es="<b>Texto negro puro (#000000):</b> Facilita la extracción de caracteres sin importar la resolución." data-en="<b>Pure black text (#000000):</b> Maximizes character extraction accuracy across all parsers."><b>Texto negro puro (#000000):</b> Facilita la extracción de caracteres sin importar la resolución.</li>
+            <li data-es="<b>Columna única vertical:</b> Jamás uses dos columnas ni cajas flotantes." data-en="<b>Single-column structure:</b> Never use dual columns, tables, or floating text boxes."><b>Columna única vertical:</b> Jamás uses dos columnas ni cajas flotantes.</li>
+          </ul>
+        </div>
+
+        <!-- Rule 2 -->
+        <div class="info-card">
+          <h3 data-es="⌨️ Atajos de Portapapeles" data-en="⌨️ Clipboard Hacks">⌨️ Atajos de Portapapeles</h3>
+          <p style="margin-bottom: 10px;" data-es="Agiliza el llenado de formularios largos de postulaciones:" data-en="Speed up tedious job application forms:">Agiliza el llenado de formularios largos de postulaciones:</p>
+          <ul>
+            <li data-es="<b>En Windows:</b> Presiona <span class='kbd-badge'>Win + V</span> para activar el historial del portapapeles. Guarda ahí tu LinkedIn, GitHub y respuestas frecuentes." data-en="<b>On Windows:</b> Press <span class='kbd-badge'>Win + V</span> to open clipboard history. Store your LinkedIn, GitHub, and common answers."><b>En Windows:</b> Presiona <span class='kbd-badge'>Win + V</span> para activar el historial del portapapeles. Guarda ahí tu LinkedIn, GitHub y respuestas frecuentes.</li>
+            <li data-es="<b>En Mac:</b> Usa <span class='kbd-badge'>Cmd + Option + Shift + V</span> para pegar sin formato. Se recomienda usar utilidades como <i>Maccy</i> o <i>Raycast Clipboard</i>." data-en="<b>On Mac:</b> Use <span class='kbd-badge'>Cmd + Option + Shift + V</span> to paste plain text. Apps like <i>Maccy</i> or <i>Raycast Clipboard</i> add clipboard history."><b>En Mac:</b> Usa <span class='kbd-badge'>Cmd + Option + Shift + V</span> para pegar sin formato. Se recomienda usar utilidades como <i>Maccy</i> o <i>Raycast Clipboard</i>.</li>
+          </ul>
+        </div>
+
+        <!-- Rule 3 -->
+        <div class="info-card">
+          <h3 data-es="🔗 Enlaces e Hipervínculos" data-en="🔗 Hyperlinks & Anchors">🔗 Enlaces e Hipervínculos</h3>
+          <ul>
+            <li data-es="<b>Hipervínculos limpios:</b> Ancla tus enlaces en palabras clave claras como 'LinkedIn', 'Portfolio' o 'GitHub'." data-en="<b>Clean hyperlink text:</b> Embed links into concise keywords like 'LinkedIn', 'Portfolio', or 'GitHub'."><b>Hipervínculos limpios:</b> Ancla tus enlaces en palabras clave claras como 'LinkedIn', 'Portfolio' o 'GitHub'.</li>
+            <li data-es="<b>Sin URLs extremadamente largas:</b> Evita pegar URLs de 3 líneas que ensucian el diseño impreso y digital." data-en="<b>Avoid raw ugly URLs:</b> Do not paste 3-line long URLs that ruin visual clean design."><b>Sin URLs extremadamente largas:</b> Evita pegar URLs de 3 líneas que ensucian el diseño impreso y digital.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interview Checklist Card -->
+      <div class="checklist-box">
+        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-brown);" data-es="📋 Checklist de Datos Clave para Formularios y Entrevistas" data-en="📋 Essential Data Checklist for Job Applications">
+          📋 Checklist de Datos Clave para Formularios y Entrevistas
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;" data-es="Ten siempre listos estos datos en tu portapapeles antes de iniciar una postulación:" data-en="Keep these exact data points ready in your clipboard history before starting applications:">
+          Ten siempre listos estos datos en tu portapapeles antes de iniciar una postulación:
         </p>
 
-        <div class="tech-stack-list">
-          <div class="tech-card">
-            <h4>Live Portfolio & Network Anchors</h4>
-            <p>Every edition is linked to verified digital credentials, including my LinkedIn profile and personal Portfolio Web (<code>portafolio-jpeg.vercel.app</code>), establishing trust and immediate verification for recruiters.</p>
+        <div class="checklist-grid">
+          <div class="checklist-item">
+            <label data-es="Salario Mensual (COP)" data-en="Monthly Salary (COP)">Salario Mensual (COP)</label>
+            <span data-es="Definir rango claro" data-en="Set clear range">Definir rango claro</span>
           </div>
-          <div class="tech-card">
-            <h4>Single-Column ATS Parsing Rules</h4>
-            <p>All documents follow a strictly vertical single-column structure. Dates are formatted as inline plain text under job titles to ensure parsing algorithms never conflate dates with organization names.</p>
+          <div class="checklist-item">
+            <label data-es="Salario Anual (USD)" data-en="Annual Salary (USD)">Salario Anual (USD)</label>
+            <span data-es="Monto bruto objetivo" data-en="Target gross amount">Monto bruto objetivo</span>
           </div>
-          <div class="tech-card">
-            <h4>Apple & Coca-Cola Inspired UI Engine</h4>
-            <p>Built with light, warm glassmorphism aesthetic (`Plus Jakarta Sans` typography, creamy backgrounds, and warm amber accents) delivering a high-end product experience without heavy JavaScript frameworks.</p>
+          <div class="checklist-item">
+            <label data-es="Disponibilidad" data-en="Notice Period">Disponibilidad</label>
+            <span data-es="Inmediata / X semanas" data-en="Immediate / X weeks">Inmediata / X semanas</span>
           </div>
-          <div class="tech-card">
-            <h4>Embedded Viewer & Fast Delivery</h4>
-            <p>Features instant PDF preview modals via clean iframe binding and relative paths, avoiding external viewer dependencies and ensuring rapid local execution.</p>
+          <div class="checklist-item">
+            <label data-es="Nivel de Inglés" data-en="English Level">Nivel de Inglés</label>
+            <span data-es="B2 / C1 / C2 (Proficient)" data-en="B2 / C1 / C2 (Proficient)">B2 / C1 / C2 (Proficient)</span>
+          </div>
+          <div class="checklist-item">
+            <label data-es="Portafolio Web" data-en="Portfolio Web">Portafolio Web</label>
+            <span>portafolio-jpeg.vercel.app</span>
+          </div>
+          <div class="checklist-item">
+            <label data-es="Perfil GitHub" data-en="GitHub Profile">Perfil GitHub</label>
+            <span>github.com/usuario</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: AI GEM Agent Hub -->
+      <section id="learning" class="learning-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--brand-brown);" data-es="🤖 Crea tu Agente AI GEM para Tu Hoja de Vida" data-en="🤖 Build Your Custom Resume AI GEM Agent">
+            🤖 Crea tu Agente AI GEM para Tu Hoja de Vida
+          </h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;" data-es="Utiliza Google Gemini u otra IA para ser entrevistado paso a paso y generar tu CV en formato ATS óptimo." data-en="Use Google Gemini or any LLM to conduct a step-by-step interview and generate an ATS-optimized resume.">
+          Utiliza Google Gemini u otra IA para ser entrevistado paso a paso y generar tu CV en formato ATS óptimo.
+        </p>
+
+        <!-- Dynamic Code Prompt -->
+        <pre class="prompt-code" id="gem-prompt"></pre>
+
+        <button class="btn btn-download" onclick="copyGemPrompt()" data-es="📋 Copiar Prompt del Agente AI" data-en="📋 Copy AI Agent Prompt">
+          📋 Copiar Prompt del Agente AI
+        </button>
+      </section>
+
+      <!-- SECTION 3: Case Study -->
+      <section id="casestudy" class="checklist-box">
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--brand-brown); margin-bottom: 8px;" data-es="🔍 Caso de Estudio: Arquitectura de Perfil & Plataforma Web" data-en="🔍 Case Study: Profile Architecture & Web Platform">
+          🔍 Caso de Estudio: Arquitectura de Perfil & Plataforma Web
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;" data-es="Análisis técnico de cómo se construyeron estos currículums y la arquitectura ligera de este sitio." data-en="Technical breakdown of how these resumes were engineered for zero-defect ATS parsing alongside this web platform.">
+          Análisis técnico de cómo se construyeron estos currículums y la arquitectura ligera de este sitio.
+        </p>
+
+        <div class="checklist-grid">
+          <div class="checklist-item">
+            <label data-es="Estructura ATS Estricta" data-en="Strict ATS Layout">Estructura ATS Estricta</label>
+            <p style="font-size: 0.82rem; color: var(--text-muted);" data-es="Ubicación de fechas directamente debajo de cargos/empresas para evitar que los algoritmos confundan fechas con nombres de organizaciones." data-en="Dates positioned directly under roles/companies so parsing algorithms never conflate dates with organization names.">Ubicación de fechas directamente debajo de cargos/empresas para evitar que los algoritmos confundan fechas con nombres de organizaciones.</p>
+          </div>
+          <div class="checklist-item">
+            <label data-es="Visualizador PDF Integrado" data-en="Embedded PDF Viewer">Visualizador PDF Integrado</label>
+            <p style="font-size: 0.82rem; color: var(--text-muted);" data-es="Modal flotante ultra rápido mediante binding de iframe directo a archivos locales, evitando dependencias pesadas." data-en="Ultra-fast modal previews using direct iframe binding to local files, eliminating heavy external libraries.">Modal flotante ultra rápido mediante binding de iframe directo a archivos locales, evitando dependencias pesadas.</p>
+          </div>
+          <div class="checklist-item">
+            <label data-es="Diseño Glassmorphism Cálido" data-en="Warm Glassmorphism UI">Diseño Glassmorphism Cálido</label>
+            <p style="font-size: 0.82rem; color: var(--text-muted);" data-es="Estética minimalista inspirada en productos ejecutivos globales con fuentes variables Jakarta Sans." data-en="Minimalist executive aesthetic inspired by high-end tech products with Plus Jakarta Sans typography.">Estética minimalista inspirada en productos ejecutivos globales con fuentes variables Jakarta Sans.</p>
           </div>
         </div>
       </section>
 
-      <!-- Universal Learning Hub (Dynamic Switcher) -->
-      <section class="learning-box" id="learning">
-        <div class="lang-switcher-container">
-          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--brand-brown);">Universal Learning Hub & AI GEM</h2>
-          
-          <div class="lang-switch">
-            <button class="lang-btn active" onclick="switchLang('en')">English</button>
-            <button class="lang-btn" onclick="switchLang('es')">Español</button>
-          </div>
-        </div>
-
-        <!-- ENGLISH CONTENT -->
-        <div id="content-en" class="lang-content active">
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
-            A complete guide for job seekers to build a bulletproof, ATS-friendly resume from scratch using artificial intelligence.
-          </p>
-
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 14px; padding: 20px; margin-bottom: 20px;">
-            <h4 style="color: var(--brand-brown); margin-bottom: 8px;">4 Universal Rules for an ATS-Perfect Resume:</h4>
-            <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.88rem;">
-              <li><b>1. Strict Single-Column Layout:</b> Never use sidebars or double columns. ATS parsers read left-to-right, top-to-bottom.</li>
-              <li><b>2. Strategic Date Placement:</b> Place dates directly under the company/job title line to avoid classification errors.</li>
-              <li><b>3. Measurable Metrics & Key Skills:</b> Include percentages, volume handled, or SLA adherence numbers (e.g., <i>35% productivity boost</i>).</li>
-              <li><b>4. Interactive Web Links:</b> Include direct, clean text links to your LinkedIn, GitHub, or Portfolio website.</li>
-            </ul>
-          </div>
-
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 14px; padding: 20px;">
-            <h4 style="color: var(--brand-brown); margin-bottom: 8px;">How to Train Your AI GEM:</h4>
-            <ol style="padding-left: 20px; color: var(--text-muted); font-size: 0.88rem;">
-              <li>Open <b>Google Gemini</b> or your preferred LLM.</li>
-              <li>Create a new chat or custom Gem.</li>
-              <li>Copy and paste the prompt below into the instructions.</li>
-              <li>Type <b>"Hello"</b> to trigger the interactive step-by-step interview.</li>
-            </ol>
-
-            <pre class="prompt-code" id="prompt-en">Act as an expert corporate recruiter and career consultant specializing in Applicant Tracking Systems (ATS) and AI resume optimization.
-
-Your primary mission:
-1. Greet the user warmly and briefly explain that you will guide them step-by-step through creating an ATS-optimized, high-impact Resume from scratch.
-2. Wait for the user to reply with a greeting (e.g., "Hello").
-3. Ask structured, step-by-step questions to gather their professional background without overwhelming them:
-   - Contact details and professional links (LinkedIn / Portfolio).
-   - Target industry and tailored professional summary.
-   - Work experience in reverse chronological order (Role, Company, Dates, Quantifiable achievements).
-   - Technical skills, software tools, and domain-specific platforms.
-   - Education and official certifications.
-4. Enforce strict ATS Formatting Rules:
-   - Single-Column layout.
-   - Dates positioned on the line directly below the Company/Role.
-   - Include action verbs and measurable business metrics.
-   - Zero graphics, tables, photos, or complex formatting blocks.
-5. Final Output: Deliver a fully formatted Resume ready to copy and export to PDF.</pre>
-
-            <button class="btn btn-download" onclick="copyPrompt('prompt-en')">Copy English GEM Prompt</button>
-          </div>
-        </div>
-
-        <!-- SPANISH CONTENT -->
-        <div id="content-es" class="lang-content">
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
-            Guía universal para profesionales que buscan construir una hoja de vida perfecta para filtros ATS e Inteligencia Artificial desde cero.
-          </p>
-
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 14px; padding: 20px; margin-bottom: 20px;">
-            <h4 style="color: var(--brand-brown); margin-bottom: 8px;">Reglas Esenciales para una Hoja de Vida ATS-Perfecta:</h4>
-            <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.88rem;">
-              <li><b>1. Formato de Columna Única:</b> Jamás utilices dos columnas ni barras laterales. Los lectores ATS leen verticalmente de izquierda a derecha.</li>
-              <li><b>2. Ubicación Inteligente de Fechas:</b> Pon las fechas siempre en la línea inmediatamente inferior al cargo y empresa para evitar errores de lectura.</li>
-              <li><b>3. Métricas de Impacto:</b> Incluye porcentajes, datos numéricos y herramientas clave (ej. <i>incremento de productividad del 35%</i>).</li>
-              <li><b>4. Enlaces Interactivos:</b> Añade vínculos en texto plano a tu perfil de LinkedIn y Portafolio Web profesional.</li>
-            </ul>
-          </div>
-
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 14px; padding: 20px;">
-            <h4 style="color: var(--brand-brown); margin-bottom: 8px;">Pasos para Usar este Agente GEM de IA:</h4>
-            <ol style="padding-left: 20px; color: var(--text-muted); font-size: 0.88rem;">
-              <li>Abre <b>Google Gemini</b> o tu IA de preferencia.</li>
-              <li>Crea un nuevo Gem o abre un chat limpio.</li>
-              <li>Copia y pega el prompt que aparece a continuación.</li>
-              <li>Escribe únicamente <b>"Hola"</b> para iniciar la entrevista interactiva guiada.</li>
-            </ol>
-
-            <pre class="prompt-code" id="prompt-es">Actúa como un reclutador corporativo experto y consultor de carrera especializado en ingeniería de hojas de vida para el paso de filtros ATS (Applicant Tracking Systems) e Inteligencia Artificial de selección.
-
-Tus tareas principales son:
-1. Saludar cordialmente al usuario y explicarle de forma breve que lo guiarás paso a paso para construir un Currículum Vitae optimizado para algoritmos, desde cero.
-2. Esperar a que el usuario responda al saludo inicial (ej. "Hola").
-3. Hacerle preguntas estratégicas una a una para extraer su información profesional sin abrumarlo:
-   - Datos de contacto y enlaces a LinkedIn/Portafolio.
-   - Perfil profesional adaptado a su industria objetivo.
-   - Experiencia laboral en orden cronológico inverso (Puesto, Empresa, Fechas, Logros cuantitativos).
-   - Habilidades técnicas, herramientas de software y plataformas específicas.
-   - Educación y Certificaciones oficiales.
-4. Reglas estrictas de construcción de la Hoja de Vida:
-   - Formato de Columna Única (Single-Column).
-   - Fechas ubicadas en la línea directamente posterior al nombre de la empresa/cargo.
-   - Inclusión de verbos de acción y números/porcentajes de impacto.
-   - Cero gráficos, cero fotos, cero columnas flotantes o tablas.
-5. Entrega final: Generar la hoja de vida completa lista para copiar e imprimir en PDF.</pre>
-
-            <button class="btn btn-download" onclick="copyPrompt('prompt-es')">Copiar Prompt en Español</button>
-          </div>
-        </div>
-
+      <!-- SECTION 4: Resumes Showcase -->
+      <section id="editions" class="section-header">
+        <h2 class="section-label" data-es="📄 Hojas de Vida Especializadas (Resultados)" data-en="📄 Specialized Resume Editions (Results)">
+          📄 Hojas de Vida Especializadas (Resultados)
+        </h2>
+        <p class="section-desc" data-es="Explora las versiones listas para descarga directa de mis hojas de vida construidas bajo todas las reglas ATS anteriores." data-en="Explore direct downloadable versions of my resumes built according to all ATS compliance rules above.">
+          Explora las versiones listas para descarga directa de mis hojas de vida construidas bajo todas las reglas ATS anteriores.
+        </p>
       </section>
 
-      <!-- Contact Section -->
-      <section class="contact-box" id="contact">
-        <h2 class="contact-title">Ready to Elevate Your Profile & Web Presence?</h2>
-        <p class="contact-subtitle">Get personalized mentorship for ATS resume engineering or request a custom high-performance web solution built to showcase your products.</p>
+      <div class="product-list">
         
-        <div class="interactive-card">
-          <p style="font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.9);">Direct Line — Juan Pablo Espinel Galvis</p>
-          <a href="https://wa.me/573156771482?text=Hello%20Juan%20Pablo,%20I'm%20interested%20in%20your%20ATS%20Resume%20Architecture%20and%20Web%20Services." target="_blank" class="whatsapp-btn">
-            <span>💬 Connect on WhatsApp</span>
-          </a>
-          <span style="font-size: 0.75rem; color: rgba(255,255,255,0.6);">(+57) 315 677 1482</span>
+        <!-- CV 1 -->
+        <div class="product-row">
+          <div class="product-info">
+            <h3 data-es="Fintech Risk, FinCrime & Compliance Operations Specialist" data-en="Fintech Risk, FinCrime & Compliance Operations Specialist">Fintech Risk, FinCrime & Compliance Operations Specialist</h3>
+            <p data-es="Enfoque: Investigación de Transacciones, Fraude, Disputas/Chargebacks, VROL, Reglas Visa/Stripe, KYC/AML y Métricas Operativas." data-en="Focus: Transaction Investigation, Fraud Assessment, Disputes/Chargebacks, VROL, Visa/Stripe Rules, KYC/AML, and Risk Metrics.">Enfoque: Investigación de Transacciones, Fraude, Disputas/Chargebacks, VROL, Reglas Visa/Stripe, KYC/AML y Métricas Operativas.</p>
+          </div>
+          <div class="product-actions">
+            <button class="btn btn-preview" onclick="openPreview('Fintech_Risk_FinCrime.pdf')" data-es="👁 Previsualizar" data-en="👁 Preview">👁 Previsualizar</button>
+            <a class="btn btn-open" href="Fintech_Risk_FinCrime.pdf" target="_blank" data-es="↗ Abrir Pestaña" data-en="↗ Open Tab">↗ Abrir Pestaña</a>
+            <a class="btn btn-download" href="Fintech_Risk_FinCrime.pdf" download="Juan_Pablo_Espinel_Fintech_Risk_FinCrime.pdf" data-es="⬇ Descargar PDF" data-en="⬇ Download PDF">⬇ Descargar PDF</a>
+          </div>
         </div>
+
+        <!-- CV 2 -->
+        <div class="product-row">
+          <div class="product-info">
+            <h3 data-es="Merchant Operations & Technical Operations Specialist" data-en="Merchant Operations & Technical Operations Specialist">Merchant Operations & Technical Operations Specialist</h3>
+            <p data-es="Enfoque: Operaciones de comercios (Merchant Support), Configuración de Cuentas, Payout Lifecycles, APIs, Power BI, SQL y Coordinación Operativa." data-en="Focus: Merchant Operations, Onboarding, Payout Lifecycles, API Concepts, Stripe Dashboard, Power BI, SQL, and Field Execution.">Enfoque: Operaciones de comercios (Merchant Support), Configuración de Cuentas, Payout Lifecycles, APIs, Power BI, SQL y Coordinación Operativa.</p>
+          </div>
+          <div class="product-actions">
+            <button class="btn btn-preview" onclick="openPreview('Merchant_Operations.pdf')" data-es="👁 Previsualizar" data-en="👁 Preview">👁 Previsualizar</button>
+            <a class="btn btn-open" href="Merchant_Operations.pdf" target="_blank" data-es="↗ Abrir Pestaña" data-en="↗ Open Tab">↗ Abrir Pestaña</a>
+            <a class="btn btn-download" href="Merchant_Operations.pdf" download="Juan_Pablo_Espinel_Merchant_Operations.pdf" data-es="⬇ Descargar PDF" data-en="⬇ Download PDF">⬇ Descargar PDF</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECTION 5: Contact -->
+      <section id="contact" class="contact-box">
+        <h2 class="contact-title" data-es="¿Listo para Elevar tu Perfil Profesional?" data-en="Ready to Elevate Your Professional Profile?">
+          ¿Listo para Elevar tu Perfil Profesional?
+        </h2>
+        <p class="contact-subtitle" data-es="Si quieres mentoría personalizada para estructurar tu Hoja de Vida en formato ATS o necesitas una solución web de alto impacto para tus productos, conectemos de inmediato." data-en="Get personalized mentorship for ATS resume architecture or request a high-performance custom web solution built for your products.">
+          Si quieres mentoría personalizada para estructurar tu Hoja de Vida en formato ATS o necesitas una solución web de alto impacto para tus productos, conectemos de inmediato.
+        </p>
+
+        <a id="whatsapp-link" href="https://wa.me/573156771482?text=Hola%20Juan%20Pablo,%20quisiera%20asesor%C3%ADa%20en%20arquitectura%20de%20CV%20ATS%20y%20desarrollo%20web." target="_blank" class="whatsapp-btn">
+          <span id="wa-btn-text">💬 Conectar en WhatsApp</span>
+        </a>
       </section>
 
     </div>
@@ -736,25 +881,115 @@ Tus tareas principales son:
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 <strong>Juan Pablo Espinel Galvis</strong>. All rights reserved.</p>
-    <p style="font-size: 0.8rem; margin-top: 6px; color: var(--text-muted);">Crafted with precision for high-performance executive and technical operations.</p>
+    <p>© 2026 <strong>Juan Pablo Espinel Galvis</strong>. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+    <p style="font-size: 0.8rem; margin-top: 6px; color: var(--text-muted);" data-es="Diseñado con precisión para operaciones de alto rendimiento e ingeniería de software." data-en="Crafted with precision for high-performance executive and technical operations.">Diseñado con precisión para operaciones de alto rendimiento e ingeniería de software.</p>
   </footer>
 
   <!-- Modal Preview Window -->
   <div class="modal" id="pdfModal">
     <div class="modal-content">
       <div class="modal-header">
-        <span id="modalTitle" style="font-size: 0.95rem; font-weight: 700; color: var(--brand-brown);">Document Preview</span>
-        <button class="modal-close" onclick="closePreview()">Close</button>
+        <span id="modalTitle" style="font-size: 0.95rem; font-weight: 700; color: var(--brand-brown);">Vista Previa</span>
+        <button class="modal-close" onclick="closePreview()" data-es="Cerrar" data-en="Close">Cerrar</button>
       </div>
       <iframe id="pdfFrame" src=""></iframe>
     </div>
   </div>
 
   <script>
+    // Prompts stored for AI GEM Agent
+    const gemPrompts = {
+      es: `Actúa como un reclutador corporativo experto y consultor de carrera especializado en ingeniería de hojas de vida para el paso de filtros ATS (Applicant Tracking Systems) e Inteligencia Artificial de selección.
+
+Tus tareas principales son:
+1. Saludar cordialmente al usuario y explicarle de forma breve que lo guiarás paso a paso para construir un Currículum Vitae optimizado para algoritmos, desde cero.
+2. Esperar a que el usuario responda al saludo inicial (ej. "Hola").
+3. Hacerle preguntas estratégicas una a una para extraer su información profesional sin abrumarlo:
+   - Datos de contacto y enlaces a LinkedIn/Portafolio/GitHub.
+   - Perfil profesional adaptado a su industria objetivo.
+   - Experiencia laboral en orden cronológico inverso (Puesto, Empresa, Fechas, Logros cuantitativos con métricas).
+   - Habilidades técnicas, herramientas de software y plataformas específicas.
+   - Educación y Certificaciones oficiales.
+4. Reglas estrictas de construcción de la Hoja de Vida:
+   - Formato de Columna Única (Single-Column).
+   - Fechas ubicadas en la línea directamente posterior al nombre de la empresa/cargo.
+   - Inclusión de verbos de acción y números/porcentajes de impacto.
+   - Cero gráficos, cero fotos, cero columnas flotantes o tablas decorativas.
+5. Entrega final: Generar la hoja de vida completa lista para copiar e imprimir en PDF.`,
+      
+      en: `Act as an expert corporate recruiter and career consultant specializing in Applicant Tracking Systems (ATS) and AI resume optimization.
+
+Your primary mission:
+1. Greet the user warmly and briefly explain that you will guide them step-by-step through creating an ATS-optimized, high-impact Resume from scratch.
+2. Wait for the user to reply with a greeting (e.g., "Hello").
+3. Ask structured, step-by-step questions to gather their professional background without overwhelming them:
+   - Contact details and professional links (LinkedIn / Portfolio / GitHub).
+   - Target industry and tailored professional summary.
+   - Work experience in reverse chronological order (Role, Company, Dates, Quantifiable achievements with metrics).
+   - Technical skills, software tools, and domain-specific platforms.
+   - Education and official certifications.
+4. Enforce strict ATS Formatting Rules:
+   - Single-Column layout.
+   - Dates positioned on the line directly below the Company/Role.
+   - Include action verbs and measurable business metrics.
+   - Zero graphics, tables, photos, or complex formatting blocks.
+5. Final Output: Deliver a fully formatted Resume ready to copy and export to PDF.`
+    };
+
+    let currentLang = 'es';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+
+      // Toggle Active buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
+      });
+
+      // Update text contents
+      document.querySelectorAll('[data-es]').forEach(el => {
+        if (lang === 'es' && el.getAttribute('data-es')) {
+          el.innerHTML = el.getAttribute('data-es');
+        } else if (lang === 'en' && el.getAttribute('data-en')) {
+          el.innerHTML = el.getAttribute('data-en');
+        }
+      });
+
+      // Update AI Prompt Code Box
+      document.getElementById('gem-prompt').innerText = gemPrompts[lang];
+
+      // Update WhatsApp Link Text & Pre-filled Message
+      const waBtnText = document.getElementById('wa-btn-text');
+      const waLink = document.getElementById('whatsapp-link');
+
+      if (lang === 'es') {
+        waBtnText.innerText = '💬 Conectar en WhatsApp';
+        waLink.href = "https://wa.me/573156771482?text=Hola%20Juan%20Pablo,%20quisiera%20asesor%C3%ADa%20en%20arquitectura%20de%20CV%20ATS%20y%20desarrollo%20web.";
+      } else {
+        waBtnText.innerText = '💬 Connect on WhatsApp';
+        waLink.href = "https://wa.me/573156771482?text=Hello%20Juan%20Pablo,%20I'm%20interested%20in%20your%20ATS%20Resume%20Architecture%20and%20Web%20Services.";
+      }
+    }
+
+    function copyGemPrompt() {
+      const promptText = document.getElementById('gem-prompt').innerText;
+      navigator.clipboard.writeText(promptText).then(() => {
+        showToast(currentLang === 'es' ? '¡Prompt copiado al portapapeles!' : 'Prompt copied to clipboard!');
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.innerText = message;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2500);
+    }
+
     function openPreview(pdfUrl) {
       document.getElementById('pdfFrame').src = pdfUrl;
-      document.getElementById('modalTitle').innerText = 'Preview: ' + pdfUrl;
+      document.getElementById('modalTitle').innerText = (currentLang === 'es' ? 'Vista Previa: ' : 'Preview: ') + pdfUrl;
       document.getElementById('pdfModal').style.display = 'flex';
     }
 
@@ -763,25 +998,8 @@ Tus tareas principales son:
       document.getElementById('pdfFrame').src = '';
     }
 
-    function switchLang(lang) {
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.lang-content').forEach(content => content.classList.remove('active'));
-
-      if (lang === 'en') {
-        document.querySelectorAll('.lang-btn')[0].classList.add('active');
-        document.getElementById('content-en').classList.add('active');
-      } else {
-        document.querySelectorAll('.lang-btn')[1].classList.add('active');
-        document.getElementById('content-es').classList.add('active');
-      }
-    }
-
-    function copyPrompt(elementId) {
-      const promptText = document.getElementById(elementId).innerText;
-      navigator.clipboard.writeText(promptText).then(() => {
-        alert('Prompt copied to clipboard!');
-      });
-    }
+    // Initialize Default Language
+    setLanguage('es');
   </script>
 </body>
 </html>
